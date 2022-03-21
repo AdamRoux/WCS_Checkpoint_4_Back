@@ -29,7 +29,7 @@ public class EventController {
 	EventService eventService;
 	
 	@PostMapping
-	public ResponseEntity<String> createEntity(@Valid CreateEventDto createEventDto) {
+	public ResponseEntity<String> createEvent(@Valid CreateEventDto createEventDto) {
 		return eventService.createEvent(createEventDto);
 	}
 	
