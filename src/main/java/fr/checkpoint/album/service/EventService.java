@@ -34,6 +34,17 @@ public class EventService {
 	@Autowired
 	PictureRepository pictureRepository;
 	
+	public List<Event> getEventByContinentId(Long id) {
+		Continent continent = continentRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+		List<Event> events = this.getEvents();
+		List<Event> continentEvents = new ArrayList<>();
+		for (Event event : events) {
+			if (event.getContinentId().getId() == continent.getId())
+			continentEvents.add(event);
+		}
+		return continentEvents;
+	}
+	
 	public Event getEventById(@PathVariable Long id) {
 		return eventRepository.findById(id)
 				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));

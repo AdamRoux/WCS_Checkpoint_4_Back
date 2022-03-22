@@ -52,4 +52,9 @@ public class EventController {
 	public void deleteEventById(@PathVariable Long id) {
 		eventService.deleteEventById(id);
 	}
+	
+	@GetMapping("/continent/{id}")
+	public List<Event> getEventByContinentId(@PathVariable Long id) {
+		return eventService.getEventByContinentId(id);
+	}
 }

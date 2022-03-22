@@ -21,7 +21,6 @@ public class CreateEventDto {
 	@NotNull
 	private Date date;
 	
-	@NotBlank
 	private String pictures;
 	
 	@NotNull
